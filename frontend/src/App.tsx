@@ -9,6 +9,8 @@ import SignIn from "components/pages/SignIn"
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
 
+import PostList from "./components/post/PostList"
+
 // グローバルで扱う変数・関数
 export const AuthContext = createContext({} as {
   loading: boolean
@@ -55,7 +57,7 @@ const App: React.FC = () => {
   const Private = ({ children }: { children: React.ReactElement }) => {
     if (!loading) {
       if (isSignedIn) {
-        return children
+        return   <Redirect to="/posts" />
       } else {
         return <Redirect to="/signin" />
       }
@@ -71,6 +73,7 @@ const App: React.FC = () => {
           <Switch>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/posts" component={PostList} />
             <Private>
               <Route exact path="/" component={Home} />
             </Private>

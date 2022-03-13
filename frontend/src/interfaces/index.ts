@@ -25,3 +25,16 @@ export interface SignUpParams {
     created_at: Date
     updated_at: Date
   }
+
+  export interface Post {
+    id: string
+    name: string
+    content: string
+    image?: {
+      url: string
+    }
+  }
+  
+  export interface PostApiJson {
+    posts: Post[]
+  }
