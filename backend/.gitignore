@@ -28,4 +28,4 @@
 /config/master.key
 
 /.env
-
+/backend/config/initializers/devise.rb	
