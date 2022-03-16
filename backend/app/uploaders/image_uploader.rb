@@ -10,13 +10,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
+    puts "ポスト名"
+    puts Post.class.to_s.underscore
     S3_BUCKET.presigned_post(key: "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}", success_action_status: '201', acl: 'public-read')
-    "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
+    #   "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
+    puts "ここまで"
   end
 
-  def store_dir
-  "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
-end
+#   def store_dir
+#   "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
+# end
  
 def filename
   # 'something.jpg' if original_filename
@@ -52,7 +55,7 @@ end
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg gif png mp4)
   end
 
   # Override the filename of the uploaded files:
