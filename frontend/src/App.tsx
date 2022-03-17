@@ -5,6 +5,9 @@ import CommonLayout from "components/layouts/CommonLayout"
 import Home from "components/pages/Home"
 import SignUp from "components/pages/SignUp"
 import SignIn from "components/pages/SignIn"
+import Top from "components/pages/Top"
+import Photo from "components/pages/Photos"
+
 
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
@@ -57,7 +60,7 @@ const App: React.FC = () => {
   const Private = ({ children }: { children: React.ReactElement }) => {
     if (!loading) {
       if (isSignedIn) {
-        return   <Redirect to="/posts" />
+        return   <Redirect to="/top" />
       } else {
         return <Redirect to="/signin" />
       }
@@ -74,8 +77,10 @@ const App: React.FC = () => {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/posts" component={PostList} />
+            <Route exact path="/photos" component={Photo} />
+            <Route exact path="/top" component={Top} />
             <Private>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/home" component={Home} />
             </Private>
           </Switch>
         </CommonLayout>

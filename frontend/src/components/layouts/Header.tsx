@@ -99,7 +99,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" color="default">
         <Toolbar>
           <IconButton
             edge="start"

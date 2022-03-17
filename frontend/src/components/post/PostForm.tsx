@@ -119,7 +119,7 @@ const PostForm = ({ handleGetPosts }: PostFormProps) => {
         <div className={classes.inputFileBtn}>
           <label htmlFor="icon-button-file">
             <Input
-              accept="image/*"
+              accept="image/*,.mp4"
               id="icon-button-file" 
               type="file"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
