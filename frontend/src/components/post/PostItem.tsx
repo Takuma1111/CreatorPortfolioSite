@@ -14,13 +14,16 @@ import FavoriteIcon from "@material-ui/icons/Favorite"
 import ShareIcon from "@material-ui/icons/Share"
 import DeleteIcon from "@material-ui/icons/Delete"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
+import styled from 'styled-components';
 
 import { Post } from "../../interfaces/index"
 import { deletePost } from "../../lib/api/posts"
 
 const useStyles = makeStyles(() => ({
   card: {
-    width: 320,
+    width: 220,
+    height: 300, 
+    textAlign: "center",
     marginTop: "2rem",
     transition: "all 0.3s",
     "&:hover": {
@@ -33,6 +36,7 @@ const useStyles = makeStyles(() => ({
     marginLeft: "auto"
   }
 }))
+
 
 interface PostItemProps {
   post: Post
