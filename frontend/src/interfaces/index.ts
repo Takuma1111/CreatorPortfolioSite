@@ -34,7 +34,21 @@ export interface SignUpParams {
       url: string
     }
   }
+
+  export interface Photo {
+    id: string
+    userId: Int16Array
+    name: string
+    text: string
+    url?: {
+        url: string
+    }
+  }
   
   export interface PostApiJson {
     posts: Post[]
+  }
+
+  export interface PhotoApiJson {
+    photos: Photo[]
   }

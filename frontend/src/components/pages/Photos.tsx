@@ -3,48 +3,78 @@ import React, { useEffect, useState } from "react"
 import { Container, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
-import PostPhotoForm from "../post/PostPhotoForm"
-import PostItem from "../post/PostItem"
+import PhotoForm from "../post/PhotoForm"
+import PhotoItem from "../post/PhotoItem"
 
-import { getPosts } from "../../lib/api/posts"
-import { Post } from "../../interfaces/index"
+import { getPhotos } from "../../lib/api/photos"
+import { getCurrentUser } from "../../lib/api/auth"
 
+import { Photo } from "../../interfaces/index"
+import styled from 'styled-components';
+import Cookies from "js-cookie";
+
+
+const MoviesContentsList = styled.div`
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 30%;
+  width: 70%;
+`;
+
+const Box = styled.div`
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #777777;
+  background: white;
+  border-top: solid 5px #777777;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+`;
 const useStyles = makeStyles(() => ({
   container: {
+    textAlign: "center",
     marginTop: "3rem"
   }
 }))
 
 const Photos: React.FC = () => {
   const classes = useStyles()
-  const [posts, setPosts] = useState<Post[]>([])
+  const [photos, setPhotos] = useState<Photo[]>([])
 
-  const handleGetPosts = async () => {
-    const { data }  = await getPosts()
-    setPosts(data.posts)
+  const handleGetPhotos = async () => {
+    const { data }  = await getPhotos()
+    console.log("取得したデータ")
+    console.log(data.photos)
+    setPhotos(data.photos)
   }
 
   useEffect(() => {
-    handleGetPosts()
+    handleGetPhotos()
   }, [])
 
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-          <PostPhotoForm
-            handleGetPosts={handleGetPosts}
+          <PhotoForm
+            handleGetPhotos={handleGetPhotos}
           />
-          { posts?.map((post: Post) => {
-            return (
-              <PostItem
-                key={post.id}
-                post={post}
-                handleGetPosts={handleGetPosts}
-              />
+            <MoviesContentsList>
+
+            { photos?.map((photo: Photo) => {
+                return (
+                    <Box>
+                <PhotoItem
+                    key={photo.id}
+                    photo = {photo}
+                    handleGetPhotos={handleGetPhotos}
+                />
+            </Box>
+                )}
             )}
-          )}
-        </Grid>   
+            </MoviesContentsList>            
+        </Grid>
       </Grid>
     </Container>
   )
