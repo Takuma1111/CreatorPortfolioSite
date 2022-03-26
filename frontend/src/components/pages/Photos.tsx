@@ -3,12 +3,15 @@ import React, { useEffect, useState } from "react"
 import { Container, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
-import PostPhotoForm from "../post/PostPhotoForm"
-import PostItem from "../post/PostItem"
+import PhotoForm from "../post/PhotoForm"
+import PhotoItem from "../post/PhotoItem"
 
-import { getPosts } from "../../lib/api/posts"
-import { Post } from "../../interfaces/index"
+import { getPhotos } from "../../lib/api/photos"
+import { getCurrentUser } from "../../lib/api/auth"
+
+import { Photo } from "../../interfaces/index"
 import styled from 'styled-components';
+import Cookies from "js-cookie";
 
 
 const MoviesContentsList = styled.div`
@@ -37,32 +40,35 @@ const useStyles = makeStyles(() => ({
 
 const Photos: React.FC = () => {
   const classes = useStyles()
-  const [posts, setPosts] = useState<Post[]>([])
+  const [photos, setPhotos] = useState<Photo[]>([])
 
-  const handleGetPosts = async () => {
-    const { data }  = await getPosts()
-    setPosts(data.posts)
+  const handleGetPhotos = async () => {
+    const { data }  = await getPhotos()
+    console.log("取得したデータ")
+    console.log(data.photos)
+    setPhotos(data.photos)
   }
 
   useEffect(() => {
-    handleGetPosts()
+    handleGetPhotos()
   }, [])
 
   return (
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-          {/* <PostPhotoForm
-            handleGetPosts={handleGetPosts}
-          /> */}
+          <PhotoForm
+            handleGetPhotos={handleGetPhotos}
+          />
             <MoviesContentsList>
-            { posts?.map((post: Post) => {
+
+            { photos?.map((photo: Photo) => {
                 return (
                     <Box>
-                <PostItem
-                    key={post.id}
-                    post={post}
-                    handleGetPosts={handleGetPosts}
+                <PhotoItem
+                    key={photo.id}
+                    photo = {photo}
+                    handleGetPhotos={handleGetPhotos}
                 />
             </Box>
                 )}

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         resources :sessions, only: %i[index]
       end
       resources :posts, only: %i[index create destroy]
+      resources :photos, only: %i[index create destroy]
 
     end
   end
