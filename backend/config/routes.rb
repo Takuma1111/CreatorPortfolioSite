@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
       resources :posts, only: %i[index create destroy]
       resources :photos, only: %i[index create destroy show]
+      resources :movies, only: %i[index create destroy show]
 
     end
   end

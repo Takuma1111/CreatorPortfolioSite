@@ -15,7 +15,7 @@ import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 
 
-const MoviesContentsList = styled.div`
+const PhotosContentsList = styled.div`
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -61,7 +61,7 @@ const Photos: React.FC = () => {
           <PhotoForm
             handleGetPhotos={handleGetPhotos}
           />
-            <MoviesContentsList>
+            <PhotosContentsList>
             { photos?.map((photo: Photo) => {
                 return (
 
@@ -76,7 +76,7 @@ const Photos: React.FC = () => {
                 </Link>
                 )}
             )}
-            </MoviesContentsList>            
+            </PhotosContentsList>            
         </Grid>
       </Grid>
     </Container>

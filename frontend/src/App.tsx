@@ -8,7 +8,8 @@ import SignIn from "components/pages/SignIn"
 import Top from "components/pages/Top"
 import Photo from "components/pages/Photos"
 import PhotoShow from "components/pages/PhotoShow"
-
+import Movie from "components/pages/Movies"
+import MovieShow from "components/pages/MovieShow"
 
 
 import { getCurrentUser } from "lib/api/auth"
@@ -81,7 +82,11 @@ const App: React.FC = () => {
             <Route exact path="/posts" component={PostList} />
             <Route exact path="/photos" component={Photo} />
             <Route exact path="/photos/:id" component={PhotoShow} />
+            <Route exact path="/movies" component={Movie} />
+            <Route exact path="/movies/:id" component={MovieShow} />
+
             <Route exact path="/top" component={Top} />
+            
             <Private>
               <Route exact path="/home" component={Home} />
             </Private>

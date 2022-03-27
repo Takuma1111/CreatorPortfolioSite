@@ -68,7 +68,7 @@ const PhotoItem = ({ photo, handleGetPhotos }: PhotoItemProps) => {
               <MoreVertIcon />
             </IconButton>
           }
-          title="User Name"
+          title={photo.name}
         />
         { photo.url?.url ?
           <CardMedia
@@ -77,31 +77,8 @@ const PhotoItem = ({ photo, handleGetPhotos }: PhotoItemProps) => {
             alt="photo image"
           /> : null
         }
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="span">
-            { photo.text.split("\n").map((text: string, index: number) => {
-                return (
-                  <p key={index}>{text}</p>
-                )
-              })
-            }
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton onClick={() => like ? setLike(false) : setLike(true)}>
-            { like ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
-          </IconButton>
-          <IconButton>
-            <ShareIcon />
-          </IconButton>
-          <div className={classes.delete}>
-            <IconButton
-              onClick={() => handleDeletePhoto(photo.id)}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </div>
-        </CardActions>
+       
+       
       </Card>
     </>
   )
