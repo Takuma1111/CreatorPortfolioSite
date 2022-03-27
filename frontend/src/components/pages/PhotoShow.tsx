@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react"
-
 import { Container, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-
 import PhotoForm from "../post/PhotoForm"
 import PhotoItem from "../post/PhotoItem"
-
 import { findPhotos } from "../../lib/api/photos"
 import { getCurrentUser } from "../../lib/api/auth"
-
 import { Photo } from "../../interfaces/index"
 import styled from 'styled-components';
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom";
+import { Link,RouteComponentProps } from "react-router-dom";
 
+interface Props extends RouteComponentProps<{ id: string }>{}
 
 const MoviesContentsList = styled.div`
   margin: auto;
@@ -39,17 +36,17 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const PhotoShow: React.FC = () => {
+  
+export const PhotoShow  = (props: Props) => {
+
   const classes = useStyles()
-  const [photos, setPhotos] = useState<Photo[]>([])
-
-
+  const [photos, setPhotos] = useState<Photo>()
+ 
   const handleFindPhotos = async () => {
-    const { data }  = await findPhotos()
-    console.log("取得したデータ")
-    console.log(data.photos)
-
-    setPhotos(data.photos)
+    const { data }  = await findPhotos(props.match.params.id)
+  
+    setPhotos(data)
+  
   }
 
   useEffect(() => {
@@ -64,21 +61,12 @@ const PhotoShow: React.FC = () => {
             handleGetPhotos={handleFindPhotos}
           />
             <MoviesContentsList>
-
-            
-            { photos?.map((photo: Photo) => {
-                return (
-                    <Link to={`/photos/${photo.id}`}  style={{ textDecoration: 'none' }}>
-                    <Box>
-                        <PhotoItem
-                            key={photo.id}
-                            photo = {photo}
-                            handleGetPhotos={handleFindPhotos}
-                        />
-                    </Box>
-                    </Link>
-                )}
-            )}
+          
+         
+            <p>{photos?.name}</p>
+            <p>{photos?.text}</p>
+            <p>{photos?.id}</p>
+       
             </MoviesContentsList>            
         </Grid>
       </Grid>

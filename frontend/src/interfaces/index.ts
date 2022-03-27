@@ -37,12 +37,13 @@ export interface SignUpParams {
 
   export interface Photo {
     id: string
-    userId: Int16Array
+    userId: string
     name: string
     text: string
     url?: {
         url: string
     }
+    
   }
   
   export interface PostApiJson {
@@ -51,4 +52,8 @@ export interface SignUpParams {
 
   export interface PhotoApiJson {
     photos: Photo[]
+  }
+
+  export interface PhotoFindApiJson {
+    photos: Photo
   }

@@ -10,6 +10,7 @@ import Photo from "components/pages/Photos"
 import PhotoShow from "components/pages/PhotoShow"
 
 
+
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
 
@@ -79,12 +80,7 @@ const App: React.FC = () => {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/posts" component={PostList} />
             <Route exact path="/photos" component={Photo} />
-            <Route
-            exact
-            path="/photos/:photoId"
-            component={PhotoShow}
-          />
-
+            <Route exact path="/photos/:id" component={PhotoShow} />
             <Route exact path="/top" component={Top} />
             <Private>
               <Route exact path="/home" component={Home} />

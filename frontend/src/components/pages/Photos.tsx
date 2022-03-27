@@ -12,6 +12,7 @@ import { getCurrentUser } from "../../lib/api/auth"
 import { Photo } from "../../interfaces/index"
 import styled from 'styled-components';
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 
 const MoviesContentsList = styled.div`
@@ -61,16 +62,18 @@ const Photos: React.FC = () => {
             handleGetPhotos={handleGetPhotos}
           />
             <MoviesContentsList>
-
             { photos?.map((photo: Photo) => {
                 return (
-                    <Box>
-                <PhotoItem
-                    key={photo.id}
-                    photo = {photo}
-                    handleGetPhotos={handleGetPhotos}
-                />
-            </Box>
+
+                <Link to={`/photos/${photo.id}`}>
+                <Box>
+                    <PhotoItem
+                        key={photo.id}
+                        photo = {photo}
+                        handleGetPhotos={handleGetPhotos}
+                    />
+                </Box>
+                </Link>
                 )}
             )}
             </MoviesContentsList>            
