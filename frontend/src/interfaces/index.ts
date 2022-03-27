@@ -43,9 +43,19 @@ export interface SignUpParams {
     url?: {
         url: string
     }
-    
   }
   
+  export interface Movie {
+    id: string
+    userId: string
+    name: string
+    text: string
+    url?: {
+        url: string
+    }
+  }
+  
+
   export interface PostApiJson {
     posts: Post[]
   }
@@ -56,4 +66,11 @@ export interface SignUpParams {
 
   export interface PhotoFindApiJson {
     photos: Photo
+  }
+  export interface MovieApiJson {
+    movies: Movie[]
+  }
+
+  export interface PhotoFindApiJson {
+    movies: Photo
   }

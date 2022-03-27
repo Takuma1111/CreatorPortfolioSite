@@ -147,7 +147,7 @@ const Top: React.FC = () => {
          </Link>
    }
     {
-         <Link to={`/sounds`} style={{ textDecoration: 'none' }}>
+         <Link to={`/movies`} style={{ textDecoration: 'none' }}>
            <HomesContentWrapper>
              <HomesImageNode src={HomeImage} />
              <MainText>サンプルテキスト</MainText>

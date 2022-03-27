@@ -1,3 +1,3 @@
 class Movie < ApplicationRecord
-  belongs_to :user_id
+  mount_uploader :url, ImageUploader
 end

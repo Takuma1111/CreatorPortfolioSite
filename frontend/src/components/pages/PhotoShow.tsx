@@ -12,14 +12,6 @@ import { Link,RouteComponentProps } from "react-router-dom";
 
 interface Props extends RouteComponentProps<{ id: string }>{}
 
-const MoviesContentsList = styled.div`
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  height: 30%;
-  width: 70%;
-`;
 
 const Box = styled.div`
   padding: 0.5em 1em;
@@ -28,6 +20,36 @@ const Box = styled.div`
   background: white;
   border-top: solid 5px #777777;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+`;
+
+
+const PhotoContentsList = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  padding-right: 10%;
+  padding-left: 10%;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+`;
+
+const Under = styled.h1 `
+  border-bottom: solid 2px gray;
+  font-family:inherit;
+  font-size: 35px;
+  font-weight: 700;
+  word-break: break-all;
+  color: #777777;
+`;
+
+
+const ExplainContent = styled.p `
+    padding-top : 15%;
+    texta-align: center;
+`;
+
+const ExplainTitle = styled.h2 `
+    margin: auto;
 `;
 const useStyles = makeStyles(() => ({
   container: {
@@ -55,21 +77,17 @@ export const PhotoShow  = (props: Props) => {
 
   return (
     <Container maxWidth="lg" className={classes.container} >
-      <Grid container direction="row" justifyContent="center">
-        <Grid item>
-          <PhotoForm
-            handleGetPhotos={handleFindPhotos}
-          />
-            <MoviesContentsList>
-          
-         
-            <p>{photos?.name}</p>
-            <p>{photos?.text}</p>
-            <p>{photos?.id}</p>
-       
-            </MoviesContentsList>            
-        </Grid>
-      </Grid>
+            <Under><h2>{photos?.name}</h2></Under>
+            <PhotoContentsList>
+                <img src={photos?.url?.url} alt="" width="90%" height = "80%" />
+                <div>
+                    <ExplainTitle><h2>説明</h2></ExplainTitle>
+                        <ExplainContent>
+                            <p>{photos?.text}</p>
+                        </ExplainContent>
+                </div>
+
+            </PhotoContentsList>
     </Container>
   )
 }
