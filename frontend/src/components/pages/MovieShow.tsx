@@ -47,6 +47,7 @@ const Under = styled.h1 `
 const ExplainContent = styled.p `
     padding-top : 30%;
     padding-left : 30%;
+    width: 100%;
     texta-align: center;
 `;
 
@@ -80,7 +81,6 @@ export const MovieShow  = (props: Props) => {
             <Under><h2>{movies?.name}</h2></Under>
             <PhotoContentsList>
               <ReactPlayer url={movies?.url?.url} width="80%" height = "500px" id="MainPlay" muted playing loop controls={true} />
-                {/* <img src={movies?.url?.url} alt="" width="90%" height = "80%" /> */}
                 <div>
                     <ExplainContent>
                         <h2>説明</h2>

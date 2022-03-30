@@ -82,7 +82,7 @@ const MovieForm = ({ handleGetMovies }: MovieFormProps) => {
     return formData
   }
 
-  const handleCreatePhoto  = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCreateMovie  = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const data = createFormData()
@@ -99,7 +99,7 @@ const MovieForm = ({ handleGetMovies }: MovieFormProps) => {
 
   return (
     <>
-      <form className={classes.form} noValidate onSubmit={handleCreatePhoto}>
+      <form className={classes.form} noValidate onSubmit={handleCreateMovie}>
       <TextField
           placeholder="Hello World"
           variant="outlined"

@@ -2,7 +2,7 @@
 import { AxiosPromise } from "axios"
 
 import client from "./client"
-import { MovieApiJson,PhotoFindApiJson,Movie } from "../../interfaces/index"
+import { MovieApiJson,Movie } from "../../interfaces/index"
 
 // post取得
 export const getMovies = (): AxiosPromise<MovieApiJson> => {

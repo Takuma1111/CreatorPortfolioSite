@@ -32,6 +32,11 @@ const Box = styled.div`
   border-top: solid 5px #777777;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 `;
+const PostButton = styled.div`
+  
+  background: gray;
+`;
+
 const useStyles = makeStyles(() => ({
   container: {
     textAlign: "center",
@@ -58,9 +63,7 @@ const Photos: React.FC = () => {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-          <PhotoForm
-            handleGetPhotos={handleGetPhotos}
-          />
+            <PostButton><Link to={`/photos/post`}>投稿する</Link></PostButton>
             <PhotosContentsList>
             { photos?.map((photo: Photo) => {
                 return (

@@ -55,7 +55,7 @@ end
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png mp4)
+    %w(jpg jpeg gif png mp4 mov mp3 wav aif )
   end
 
   # Override the filename of the uploaded files:
