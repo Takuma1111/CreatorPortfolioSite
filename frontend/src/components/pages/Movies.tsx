@@ -15,6 +15,14 @@ import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 
 
+const Under = styled.h1 `
+  border-bottom: solid 2px gray;
+  font-family:inherit;
+  font-size: 35px;
+  font-weight: 700;
+  word-break: break-all;
+  color: #777777;
+`;
 const MoviesContentsList = styled.div`
   margin: auto;
   display: flex;
@@ -58,9 +66,10 @@ const Movies: React.FC = () => {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-          <MovieForm
+          {/* <MovieForm
             handleGetMovies={handleGetMovies}
-          />
+          /> */}
+            <Under><h1>映像作品一覧</h1></Under>
             <MoviesContentsList>
             { movies?.map((movie: Movie) => {
                 return (

@@ -1,7 +1,7 @@
 import { AxiosPromise } from "axios"
 
 import client from "./client"
-import { PhotoApiJson,PhotoFindApiJson,Photo } from "../../interfaces/index"
+import { PhotoApiJson,Photo } from "../../interfaces/index"
 
 // post取得
 export const getPhotos = (): AxiosPromise<PhotoApiJson> => {

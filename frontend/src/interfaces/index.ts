@@ -55,6 +55,16 @@ export interface SignUpParams {
     }
   }
   
+    
+  export interface Sound {
+    id: string
+    userId: string
+    name: string
+    text: string
+    url?: {
+        url: string
+    }
+  }
 
   export interface PostApiJson {
     posts: Post[]
@@ -64,13 +74,9 @@ export interface SignUpParams {
     photos: Photo[]
   }
 
-  export interface PhotoFindApiJson {
-    photos: Photo
-  }
   export interface MovieApiJson {
     movies: Movie[]
   }
-
-  export interface PhotoFindApiJson {
-    movies: Photo
+  export interface SoundApiJson {
+    sounds: Sound[]
   }

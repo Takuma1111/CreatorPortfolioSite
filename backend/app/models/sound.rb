@@ -1,3 +1,3 @@
 class Sound < ApplicationRecord
-  belongs_to :user_id
+  mount_uploader :url, ImageUploader
 end

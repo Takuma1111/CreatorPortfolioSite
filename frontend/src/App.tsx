@@ -10,7 +10,8 @@ import Photo from "components/pages/Photos"
 import PhotoShow from "components/pages/PhotoShow"
 import Movie from "components/pages/Movies"
 import MovieShow from "components/pages/MovieShow"
-
+import Sound from "components/pages/Sounds"
+import SoundShow from "components/pages/SoundShow"
 
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
@@ -84,6 +85,8 @@ const App: React.FC = () => {
             <Route exact path="/photos/:id" component={PhotoShow} />
             <Route exact path="/movies" component={Movie} />
             <Route exact path="/movies/:id" component={MovieShow} />
+            <Route exact path="/sounds" component={Sound} />
+            <Route exact path="/sounds/:id" component={SoundShow} />
 
             <Route exact path="/top" component={Top} />
             

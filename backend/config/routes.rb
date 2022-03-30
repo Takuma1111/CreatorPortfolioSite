@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :posts, only: %i[index create destroy]
       resources :photos, only: %i[index create destroy show]
       resources :movies, only: %i[index create destroy show]
+      resources :sounds, only: %i[index create destroy show]
 
     end
   end
