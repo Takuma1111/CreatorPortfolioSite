@@ -10,11 +10,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    puts "ポスト名"
-    puts Post.class.to_s.underscore
-    S3_BUCKET.presigned_post(key: "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}", success_action_status: '201', acl: 'public-read')
-    #   "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
-    puts "ここまで"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+
+    # puts "ポスト名"
+    # puts Photo.class.to_s.underscore
+    # S3_BUCKET.presigned_post(key: "uploads/#{Photo.class.to_s.underscore}/#{mounted_as}/#{Photo.ids}", success_action_status: '201', acl: 'public-read')
+    # #   "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
+    # puts "ここまで"
   end
 
 #   def store_dir
@@ -22,15 +24,17 @@ class ImageUploader < CarrierWave::Uploader::Base
 # end
  
 def filename
+  original_filename if original_filename
+
   # 'something.jpg' if original_filename
-  "#{secure_token}.#{file.extension}" if original_filename.present?
+  # "#{secure_token}.#{file.extension}" if original_filename.present?
 end
  
 protected
 # 一意となるトークンを作成
 def secure_token
    var = :"@#{mounted_as}_secure_token"
-   Post.instance_variable_get(var) or Post.instance_variable_set(var, SecureRandom.uuid)
+   Photo.instance_variable_get(var) or Photo.instance_variable_set(var, SecureRandom.uuid)
 end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)

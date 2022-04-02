@@ -66,9 +66,9 @@ const Movies: React.FC = () => {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-          {/* <MovieForm
+          <MovieForm
             handleGetMovies={handleGetMovies}
-          /> */}
+          />
             <Under><h1>映像作品一覧</h1></Under>
             <MoviesContentsList>
             { movies?.map((movie: Movie) => {
