@@ -64,9 +64,7 @@ const Photos: React.FC = () => {
       <Grid container direction="row" justifyContent="center">
         <Grid item>
             <PostButton><Link to={`/photos/post`}>投稿する</Link></PostButton>
-            <PhotoForm
-            handleGetPhotos={handleGetPhotos}
-          />
+          
             <PhotosContentsList>
             { photos?.map((photo: Photo) => {
                 return (

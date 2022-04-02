@@ -8,6 +8,8 @@ import SignIn from "components/pages/SignIn"
 import Top from "components/pages/Top"
 import Photo from "components/pages/Photos"
 import PhotoShow from "components/pages/PhotoShow"
+import PhotoPost from "components/pages/PhotoPost"
+
 import Movie from "components/pages/Movies"
 import MovieShow from "components/pages/MovieShow"
 import Sound from "components/pages/Sounds"
@@ -82,6 +84,7 @@ const App: React.FC = () => {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/posts" component={PostList} />
             <Route exact path="/photos" component={Photo} />
+            <Route exact path="/photos/post" component={PhotoPost} />
             <Route exact path="/photos/:id" component={PhotoShow} />
             <Route exact path="/movies" component={Movie} />
             <Route exact path="/movies/:id" component={MovieShow} />
