@@ -64,10 +64,11 @@ const Photos: React.FC = () => {
       <Grid container direction="row" justifyContent="center">
         <Grid item>
             <PostButton><Link to={`/photos/post`}>投稿する</Link></PostButton>
+          
             <PhotosContentsList>
             { photos?.map((photo: Photo) => {
                 return (
-
+                  
                 <Link to={`/photos/${photo.id}`}>
                 <Box>
                     <PhotoItem

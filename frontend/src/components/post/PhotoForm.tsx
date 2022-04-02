@@ -94,6 +94,7 @@ const PhotoForm = ({ handleGetPhotos }: PhotoFormProps) => {
       setUrl(undefined)
       handleGetPhotos()
     })
+    window.location.href = '/photos';
   }
 
   return (
