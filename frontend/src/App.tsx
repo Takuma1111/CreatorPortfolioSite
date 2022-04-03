@@ -12,8 +12,11 @@ import PhotoPost from "components/pages/PhotoPost"
 
 import Movie from "components/pages/Movies"
 import MovieShow from "components/pages/MovieShow"
+import MoviePost from "components/pages/MoviePost"
+
 import Sound from "components/pages/Sounds"
 import SoundShow from "components/pages/SoundShow"
+import SoundPost from "components/pages/SoundPost"
 
 import { getCurrentUser } from "lib/api/auth"
 import { User } from "interfaces/index"
@@ -84,12 +87,14 @@ const App: React.FC = () => {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/posts" component={PostList} />
             <Route exact path="/photos" component={Photo} />
-            <Route exact path="/photos/post" component={PhotoPost} />
+            <Route exact path="/photo/post" component={PhotoPost} />
             <Route exact path="/photos/:id" component={PhotoShow} />
             <Route exact path="/movies" component={Movie} />
             <Route exact path="/movies/:id" component={MovieShow} />
+            <Route exact path="/movie/post" component={MoviePost} />
             <Route exact path="/sounds" component={Sound} />
             <Route exact path="/sounds/:id" component={SoundShow} />
+            <Route exact path="/sound/post" component={SoundPost} />
 
             <Route exact path="/top" component={Top} />
             

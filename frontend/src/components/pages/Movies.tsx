@@ -40,12 +40,19 @@ const Box = styled.div`
   border-top: solid 5px #777777;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 `;
+
+const PostButton = styled.div`
+  background: gray;
+`;
+
+
 const useStyles = makeStyles(() => ({
   container: {
     textAlign: "center",
     marginTop: "3rem"
   }
 }))
+
 
 const Movies: React.FC = () => {
   const classes = useStyles()
@@ -66,20 +73,19 @@ const Movies: React.FC = () => {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-          <MovieForm
-            handleGetMovies={handleGetMovies}
-          />
+        <PostButton><Link to={`/movie/post`}>投稿する</Link></PostButton>
+    
             <Under><h1>映像作品一覧</h1></Under>
             <MoviesContentsList>
             { movies?.map((movie: Movie) => {
                 return (
-
+                
                 <Link to={`/movies/${movie.id}`}>
                 <Box>
                     <MovieItem
                         key={movie.id}
                         movie = {movie}
-                        handleGetPhotos={handleGetMovies}
+                        handleGetMovies={handleGetMovies}
                     />
                 </Box>
                 </Link>

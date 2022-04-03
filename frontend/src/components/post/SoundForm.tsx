@@ -95,6 +95,7 @@ const SoundForm = ({ handleGetSounds }: SoundFormProps) => {
       setUrl(undefined)
       handleGetSounds()
     })
+    window.location.href = '/sounds';
   }
 
   return (
