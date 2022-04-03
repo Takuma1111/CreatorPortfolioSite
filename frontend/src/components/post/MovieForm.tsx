@@ -95,6 +95,7 @@ const MovieForm = ({ handleGetMovies }: MovieFormProps) => {
       setUrl(undefined)
       handleGetMovies()
     })
+    window.location.href = '/movies';
   }
 
   return (

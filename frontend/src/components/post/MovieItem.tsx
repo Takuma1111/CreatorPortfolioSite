@@ -17,7 +17,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 import styled from 'styled-components';
 
 import { Movie } from "../../interfaces/index"
-import { deletePhoto } from "../../lib/api/photos"
+import { deleteMovie } from "../../lib/api/movies"
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -40,17 +40,17 @@ const useStyles = makeStyles(() => ({
 
 interface MovieItemProps {
   movie: Movie
-  handleGetPhotos: Function
+  handleGetMovies: Function
 }
 
-const MovieItem = ({ movie, handleGetPhotos }: MovieItemProps) => {
+const MovieItem = ({ movie, handleGetMovies }: MovieItemProps) => {
   const classes = useStyles()
   const [like, setLike] = useState<boolean>(false)
 
-  const handleDeletePhoto = async (id: string) => {
-    await deletePhoto(id)
+  const handleDeleteMovie = async (id: string) => {
+    await deleteMovie(id)
     .then(() => {
-      handleGetPhotos()
+      handleGetMovies()
     })
   }
 

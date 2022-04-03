@@ -33,7 +33,6 @@ const Box = styled.div`
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 `;
 const PostButton = styled.div`
-  
   background: gray;
 `;
 
@@ -63,7 +62,7 @@ const Photos: React.FC = () => {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-            <PostButton><Link to={`/photos/post`}>投稿する</Link></PostButton>
+            <PostButton><Link to={`/photo/post`}>投稿する</Link></PostButton>
           
             <PhotosContentsList>
             { photos?.map((photo: Photo) => {
