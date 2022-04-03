@@ -32,11 +32,23 @@ const Box = styled.div`
   border-top: solid 5px #777777;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 `;
-
+const Under = styled.h2 `
+  border-bottom: solid 2px gray;
+  font-family:inherit;
+  font-size: 35px;
+  font-weight: 700;
+  word-break: break-all;
+  color: #777777;
+`;
 
 const PostButton = styled.div`
-  background: gray;
-`;
+  color: skyblue;
+  text-decoration:none;
+  float: right;
+  padding:15px;
+  border-radius: 100vh;
+  background-color: #A9A9A9;`
+;
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -65,6 +77,7 @@ const Sounds: React.FC = () => {
       <Grid container direction="row" justifyContent="center">
         <Grid item>
         <PostButton><Link to={`/sound/post`}>投稿する</Link></PostButton>
+        <Under><h2>音楽投稿一覧</h2></Under>
             <SoundsContentsList>
             { sounds?.map((sound: Sound) => {
                 return (

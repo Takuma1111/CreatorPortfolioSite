@@ -44,12 +44,14 @@ const Under = styled.h1 `
 
 
 const ExplainContent = styled.p `
-    padding-top : 15%;
     texta-align: center;
+    width: 100px;
+    padding-left: 50px;
 `;
 
-const ExplainTitle = styled.h2 `
-    margin: auto;
+const ExplainTitle = styled.h3 `
+    width: 100px;
+    padding-left: 50px;
 `;
 const useStyles = makeStyles(() => ({
   container: {
@@ -77,7 +79,7 @@ export const PhotoShow  = (props: Props) => {
 
   return (
     <Container maxWidth="lg" className={classes.container} >
-            <Under><h2>{photos?.name}</h2></Under>
+            <Under><h3>{photos?.name}</h3></Under>
             <PhotoContentsList>
                 <img src={photos?.url?.url} alt="" width="90%" height = "80%" />
                 <div>
