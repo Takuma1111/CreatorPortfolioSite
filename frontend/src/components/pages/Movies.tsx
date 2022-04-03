@@ -15,7 +15,7 @@ import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 
 
-const Under = styled.h1 `
+const Under = styled.h2 `
   border-bottom: solid 2px gray;
   font-family:inherit;
   font-size: 35px;
@@ -42,7 +42,12 @@ const Box = styled.div`
 `;
 
 const PostButton = styled.div`
-  background: gray;
+  color: skyblue;
+  text-decoration:none;
+  float: right;
+  padding:15px;
+  border-radius: 100vh;
+  background-color: #A9A9A9;
 `;
 
 
@@ -73,9 +78,10 @@ const Movies: React.FC = () => {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container direction="row" justifyContent="center">
         <Grid item>
-        <PostButton><Link to={`/movie/post`}>投稿する</Link></PostButton>
-    
-            <Under><h1>映像作品一覧</h1></Under>
+        <PostButton ><Link to={`/movie/post`} >投稿する</Link></PostButton>
+
+        {/* <PostButton><Link to={`/movie/post`}>投稿する</Link></PostButton> */}
+            <Under><h2>映像作品一覧</h2></Under>
             <MoviesContentsList>
             { movies?.map((movie: Movie) => {
                 return (
