@@ -39,7 +39,6 @@ class Api::V1::MoviesController < ApplicationController
         @movie = Movie.find(params[:id])
       end
   
-    # params.permit(:name,:text,:url).merge(user_id: User.where(email: params[:user_id]).ids)
 
       def movie_params
         params.permit(:user_id,:name,:text,:url)
