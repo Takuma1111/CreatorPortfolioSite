@@ -11,23 +11,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-
-    # puts "ポスト名"
-    # puts Photo.class.to_s.underscore
-    # S3_BUCKET.presigned_post(key: "uploads/#{Photo.class.to_s.underscore}/#{mounted_as}/#{Photo.ids}", success_action_status: '201', acl: 'public-read')
-    # #   "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
-    # puts "ここまで"
   end
 
-#   def store_dir
-#   "uploads/#{Post.class.to_s.underscore}/#{mounted_as}/#{Post.ids}"
-# end
  
 def filename
   original_filename if original_filename
 
-  # 'something.jpg' if original_filename
-  # "#{secure_token}.#{file.extension}" if original_filename.present?
+
 end
  
 protected

@@ -4,7 +4,6 @@ import { AxiosPromise } from "axios"
 import client from "./client"
 import { MovieApiJson,Movie } from "../../interfaces/index"
 
-// post取得
 export const getMovies = (): AxiosPromise<MovieApiJson> => {
   return client.get("/movies")
 }

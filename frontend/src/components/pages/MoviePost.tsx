@@ -22,8 +22,6 @@ const MoviePost: React.FC = () => {
 
   const handleGetMovies = async () => {
     const { data }  = await getMovies()
-    console.log("取得したデータ")
-    console.log(data.movies)
     setMovies(data.movies)
   }
 

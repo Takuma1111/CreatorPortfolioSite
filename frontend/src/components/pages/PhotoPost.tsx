@@ -22,8 +22,6 @@ const PhotoPost: React.FC = () => {
 
   const handleGetPhotos = async () => {
     const { data }  = await getPhotos()
-    console.log("取得したデータ")
-    console.log(data.photos)
     setPhotos(data.photos)
   }
 

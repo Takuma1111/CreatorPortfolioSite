@@ -140,27 +140,24 @@ const Top: React.FC = () => {
 
          <Link to={`/photos`} style={{ textDecoration: 'none' }}>
            <HomesContentWrapper>
-             <HomesImageNode src={HomeImage} />
-             <MainText>サンプルテキスト</MainText>
-             <SubText>サブテキスト</SubText>
+             <HomesImageNode src="https://creatorportfolio.s3.ap-northeast-1.amazonaws.com/22506349_m.jpg" />
+             <MainText>写真投稿一覧</MainText>
            </HomesContentWrapper>
          </Link>
    }
     {
          <Link to={`/movies`} style={{ textDecoration: 'none' }}>
            <HomesContentWrapper>
-             <HomesImageNode src={HomeImage} />
-             <MainText>サンプルテキスト</MainText>
-             <SubText>サブテキスト</SubText>
+             <HomesImageNode src="https://creatorportfolio.s3.ap-northeast-1.amazonaws.com/23637644_m.jpg" />
+             <MainText>映像投稿一覧</MainText>
            </HomesContentWrapper>
          </Link>
    }
    {
          <Link to={`/sounds`} style={{ textDecoration: 'none' }}>
            <HomesContentWrapper>
-             <HomesImageNode src={HomeImage} />
-             <MainText>サンプルテキスト</MainText>
-             <SubText>サブテキスト</SubText>
+             <HomesImageNode src="https://creatorportfolio.s3.ap-northeast-1.amazonaws.com/22593663_m.jpg" />
+             <MainText>音楽投稿一覧</MainText>
            </HomesContentWrapper>
          </Link>
    }

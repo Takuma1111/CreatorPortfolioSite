@@ -22,8 +22,6 @@ const SoundPost: React.FC = () => {
 
   const handleGetSounds = async () => {
     const { data }  = await getSounds()
-    console.log("取得したデータ")
-    console.log(data.sounds)
     setSounds(data.sounds)
   }
 
