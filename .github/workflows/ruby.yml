@@ -23,7 +23,7 @@ jobs:
       TZ: Asia/Tokyo
 
     services:
-      mariadb:
+      mysql:
         image: mysql:8.0
         env:
           MYSQL_DATABASE: ${{ env.PROJECT_DATABASE_DBNAME }}
