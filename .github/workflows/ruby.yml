@@ -11,13 +11,13 @@ jobs:
     strategy:
       matrix:
         ruby-version:
-          - 2.7.4
+          - 3.0.3
 
     env:
       RAILS_ENV: test
       PROJECT_DATABASE_HOST: 127.0.0.1
       PROJECT_DATABASE_PORT: 3306
-      PROJECT_DATABASE_DBNAME: db_test
+      PROJECT_DATABASE_DBNAME: myapp_test
       PROJECT_DATABASE_USERNAME: user
       PROJECT_DATABASE_PASSWORD: password
       TZ: Asia/Tokyo
