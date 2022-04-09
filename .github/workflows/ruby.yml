@@ -24,7 +24,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.6.0
+        image: mysql:8.0
         env:
           MYSQL_DATABASE: ${{ env.PROJECT_DATABASE_DBNAME }}
           MYSQL_USER: ${{ env.PROJECT_DATABASE_USERNAME }}
