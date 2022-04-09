@@ -19,7 +19,7 @@ jobs:
       PROJECT_DATABASE_PORT: 3306:3306
       PROJECT_DATABASE_DBNAME: myapp_test
       PROJECT_DATABASE_USERNAME: root
-      PROJECT_DATABASE_PASSWORD: password
+      PROJECT_DATABASE_PASSWORD: root
       TZ: Asia/Tokyo
 
     services:
