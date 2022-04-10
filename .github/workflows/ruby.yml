@@ -24,7 +24,6 @@ jobs:
             ${{ runner.os }}-gems-
       - name: bundle install
         run: |
-          path: backend/
           gem install bundler
           bundle install --jobs 4 --retry 3
       - name: migration
