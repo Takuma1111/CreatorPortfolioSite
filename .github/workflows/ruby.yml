@@ -37,7 +37,7 @@ jobs:
           RAILS_ENV: test
           MYSQL_USERNAME: root
           MYSQL_PASSWORD: password
-          MYSQL_HOST: myapp_test
+          MYSQL_HOST: localhost
           MYSQL_PORT: 3306:3306
           MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       - name: run rubocop
