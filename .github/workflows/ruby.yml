@@ -31,8 +31,8 @@ jobs:
         run: |
           cd backend/
           cp config/database.yml.ci config/database.yml
-          bundle exec rails db:create
-          bundle exec rails db:migrate
+          docker-compose run api bundle exec rails db:create
+          docker-compose run api bundle exec rails db:migrate
         env:
           RAILS_ENV: test
           MYSQL_USERNAME: root
