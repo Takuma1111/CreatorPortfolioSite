@@ -35,6 +35,10 @@ jobs:
           bundle exec rails db:migrate
         env:
           RAILS_ENV: test
+          MYSQL_USERNAME: root
+          MYSQL_PASSWORD: password
+          MYSQL_HOST: db
+          MYSQL_PORT: 3306:3306
       - name: run rubocop
         run: |
           bundle exec rubocop
