@@ -72,3 +72,9 @@ export const ContentsLists = styled.div`
   height: 30%;
   width: 70%;
 `;
+
+export const FooterTitle = styled.div`
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+`;

@@ -9,6 +9,7 @@ import Top from "components/pages/Top"
 import Photo from "components/pages/Photos"
 import PhotoShow from "components/pages/PhotoShow"
 import PhotoPost from "components/pages/PhotoPost"
+import Footer from "components/layouts/Footer"
 
 import Movie from "components/pages/Movies"
 import MovieShow from "components/pages/MovieShow"
@@ -97,12 +98,12 @@ const App: React.FC = () => {
             <Route exact path="/sound/post" component={SoundPost} />
 
             <Route exact path="/top" component={Top} />
-            
             <Private>
               <Route exact path="/home" component={Home} />
             </Private>
           </Switch>
         </CommonLayout>
+        <Footer/>
       </AuthContext.Provider>
     </Router>
   )
