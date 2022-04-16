@@ -101,7 +101,7 @@ const PhotoForm = ({ handleGetPhotos }: PhotoFormProps) => {
     <>
       <form className={classes.form} noValidate onSubmit={handleCreatePhoto}>
       <TextField
-          placeholder="Hello World"
+          placeholder="タイトルを入力"
           variant="outlined"
           multiline
           fullWidth
@@ -112,7 +112,7 @@ const PhotoForm = ({ handleGetPhotos }: PhotoFormProps) => {
           }}
         />
         <TextField
-          placeholder="Hello World"
+          placeholder="詳細情報を入力"
           variant="outlined"
           multiline
           fullWidth
