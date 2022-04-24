@@ -112,7 +112,7 @@ const PhotoForm = ({ handleGetPhotos }: PhotoFormProps) => {
           }}
         />
         <TextField
-          placeholder="詳細情報を入力"
+          placeholder="説明文を入力"
           variant="outlined"
           multiline
           fullWidth

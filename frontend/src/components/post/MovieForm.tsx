@@ -102,7 +102,7 @@ const MovieForm = ({ handleGetMovies }: MovieFormProps) => {
     <>
       <form className={classes.form} noValidate onSubmit={handleCreateMovie}>
       <TextField
-          placeholder="Hello World"
+          placeholder="タイトルを入力"
           variant="outlined"
           multiline
           fullWidth
@@ -113,7 +113,7 @@ const MovieForm = ({ handleGetMovies }: MovieFormProps) => {
           }}
         />
         <TextField
-          placeholder="Hello World"
+          placeholder="説明文を入力"
           variant="outlined"
           multiline
           fullWidth

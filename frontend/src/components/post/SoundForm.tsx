@@ -102,7 +102,7 @@ const SoundForm = ({ handleGetSounds }: SoundFormProps) => {
     <>
       <form className={classes.form} noValidate onSubmit={handleCreateSound}>
       <TextField
-          placeholder="Hello World"
+          placeholder="タイトルを入力"
           variant="outlined"
           multiline
           fullWidth
@@ -113,7 +113,7 @@ const SoundForm = ({ handleGetSounds }: SoundFormProps) => {
           }}
         />
         <TextField
-          placeholder="Hello World"
+          placeholder="説明文を入力"
           variant="outlined"
           multiline
           fullWidth
