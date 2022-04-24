@@ -36,7 +36,7 @@ jobs:
           docker-compose build
         env:
           RAILS_ENV: test
-          MYSQL_USERNAME: root
+          MYSQL_USERNAME: rails_user
           MYSQL_PASSWORD: password
           MYSQL_HOST: db
           MYSQL_PORT: 3306:3306
