@@ -1,51 +1,27 @@
-name: rails
+name: Ruby
 
 on: [push]
 
 jobs:
-  build:
+  test:
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Set up Ruby 3.0.3
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 3.0.3
-      - name: apt-get
-        run: |
-          sudo apt-get update
-          sudo apt-get install libmysqlclient-dev
-      - uses: actions/cache@v1
-        with:
-          path: backend/vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: bundle install
-        run: |
-          gem install bundler
-          cd backend/
-          bundle install --jobs 4 --retry 3
-      - name: migration
-        run: |
-          cd backend/
-          cp config/database.yml.ci config/database.yml
-          docker-compose run api bundle exec rails db:create
-          docker-compose run api bundle exec rails db:migrate
-          docker-compose build
-        env:
-          RAILS_ENV: test
-          MYSQL_USERNAME: rails_user
-          MYSQL_PASSWORD: password
-          MYSQL_HOST: db
-          MYSQL_PORT: 3306:3306
-          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      - name: run rubocop
-        run: |
-          bundle exec rubocop
-      - name: run rspec
-        run: |
-          bundle exec rspec
-        env:
-          RAILS_ENV: test
+    - uses: actions/checkout@v2
+    - name: Setup docker
+      shell: bash
+      run: |
+        docker-compose run api yarn install --check-files
+        docker-compose run api yarn upgrade
+        docker-compose run api rails db:create
+        docker-compose up --build
+      env:
+        RAILS_ENV: test
+
+    - name: Run RSpec
+      shell: bash
+      run:  |
+        docker-compose run api bundle exec rspec
+      env:
+        RAILS_ENV: test
