@@ -14,8 +14,8 @@ jobs:
       run: |
         docker-compose run api yarn install --check-files
         docker-compose run api yarn upgrade
-        docker-compose build
-        docker-compose run api rake db:create
+        docker-compose run api rails db:create
+        docker-compose up --build
       env:
         RAILS_ENV: test
 
