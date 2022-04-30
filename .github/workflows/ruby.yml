@@ -12,16 +12,16 @@ jobs:
     - name: Setup docker
       shell: bash
       run: |
-        docker-compose run app yarn install --check-files
-        docker-compose run app yarn upgrade
+        docker-compose run api yarn install --check-files
+        docker-compose run api yarn upgrade
         docker-compose build
-        docker-compose run app rake db:create
+        docker-compose run api rake db:create
       env:
         RAILS_ENV: test
 
     - name: Run RSpec
       shell: bash
       run:  |
-        docker-compose run app bundle exec rspec
+        docker-compose run api bundle exec rspec
       env:
         RAILS_ENV: test
